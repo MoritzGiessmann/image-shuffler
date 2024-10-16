@@ -3,8 +3,7 @@
   "name": "Image Shuffler",
   "version": "1.0",
   "description": "Shuffle image paths on the current website",
-  "permissions": ["activeTab", "scripting", "tabs"],
-  "host_permissions": ["<all_urls>"],
+  "permissions": ["activeTab", "scripting"],
   "action": {
     "default_popup": "popup.html"
   },
