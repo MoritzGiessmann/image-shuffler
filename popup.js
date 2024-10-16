@@ -1,13 +1,19 @@
-document.getElementById('shuffle-btn').addEventListener('click', () => {
-    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-        chrome.scripting.executeScript({
-            target: { tabId: tabs[0].id },
-            function: shuffleImages
+document.addEventListener('DOMContentLoaded', function () {
+    const shuffleBtn = document.getElementById('shuffle-btn');
+
+    shuffleBtn.addEventListener('click', () => {
+        chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+            chrome.scripting.executeScript({
+                target: { tabId: tabs[0].id },
+                func: shuffleImages
+            });
         });
     });
 });
 
 function shuffleImages() {
+    console.info("shuffle images executed");
+    
     // Remove all source elements from the DOM
     const sources = document.querySelectorAll('source');
     sources.forEach(source => source.remove());
